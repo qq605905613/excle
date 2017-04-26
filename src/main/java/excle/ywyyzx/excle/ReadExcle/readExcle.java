@@ -12,6 +12,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import excle.ywyyzx.excle.orm.Mchntcd;
+import excle.ywyyzx.excle.util.creatSheet;
 
 
 /**
@@ -22,29 +23,11 @@ import excle.ywyyzx.excle.orm.Mchntcd;
 public class readExcle {
 
 	
-		 public static void main(String[] args) {
-		        
-		        //String excel2003_2007 = Common.STUDENT_INFO_XLS_PATH;
-		        String excel2010 = "d:\\home\\test.xlsx";
-		        
-		        List<Mchntcd> list = readExcel(excel2010);
-		        if(list!=null){
-		            for (int i=0;i<list.size();i++) {
-		            	if(list.get(i).getWhite()=="0"){
-		            		list.remove(i);
-		            		
-		            		
-		            	}
-		                
-		         
-		            }
-		            
-		        }
-		     
-		    }
+		
 		    
 		    
-		    private static List<Mchntcd> readExcel(String path){
+		    @SuppressWarnings("unused")
+			private  List<Mchntcd> readExcel(String path){
 		        List<Mchntcd> list = new ArrayList<Mchntcd>();
 		        try {
 		            InputStream is =  new FileInputStream(path);
@@ -77,6 +60,7 @@ public class readExcle {
 		                    XSSFCell mclogo = xssfRow.getCell(11);
 		                    XSSFCell white = xssfRow.getCell(12);
 		                    	mchntcd.setId(getValue(id));
+		                    	mchntcd.setMchntnm(getValue(mchntnm));
 		                    	mchntcd.setCupName(getValue(cupName));
 		                    	mchntcd.setMchntcd(getValue(mchnt_cd));
 		                    	mchntcd.setWhite((getValue(white)));
@@ -86,6 +70,9 @@ public class readExcle {
 		                    	mchntcd.setAddress(getValue(address));
 		                    	mchntcd.setAcptName(getValue(acptName));
 		                    	mchntcd.setMcc(getValue(mcc));
+		                    	mchntcd.setCup(getValue(cup));
+		                    	mchntcd.setAcq(getValue(acq));
+		                    	
 		                    list.add(mchntcd);
 		                    
 		                }
@@ -102,7 +89,7 @@ public class readExcle {
 		    }
 		    
 		    @SuppressWarnings("static-access")
-			private static String getValue(XSSFCell xssfRow){
+			private  String getValue(XSSFCell xssfRow){
 		        if(xssfRow.getCellType()==xssfRow.CELL_TYPE_BOOLEAN){
 		            return String.valueOf(xssfRow.getBooleanCellValue());
 		        }else if(xssfRow.getCellType()==xssfRow.CELL_TYPE_NUMERIC){
