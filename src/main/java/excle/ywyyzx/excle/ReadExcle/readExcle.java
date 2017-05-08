@@ -27,7 +27,7 @@ public class readExcle {
 		    
 		    
 		    @SuppressWarnings("unused")
-			private  List<Mchntcd> readExcel(String path){
+			public List<Mchntcd> readExcel(String path){
 		        List<Mchntcd> list = new ArrayList<Mchntcd>();
 		        try {
 		            InputStream is =  new FileInputStream(path);
@@ -89,7 +89,7 @@ public class readExcle {
 		    }
 		    
 		    @SuppressWarnings("static-access")
-			private  String getValue(XSSFCell xssfRow){
+			public  String getValue(XSSFCell xssfRow){
 		        if(xssfRow.getCellType()==xssfRow.CELL_TYPE_BOOLEAN){
 		            return String.valueOf(xssfRow.getBooleanCellValue());
 		        }else if(xssfRow.getCellType()==xssfRow.CELL_TYPE_NUMERIC){

@@ -2,6 +2,7 @@ package excle.ywyyzx.excle.App;
 
 import java.util.List;
 
+import excle.ywyyzx.excle.ReadExcle.readExcle;
 import excle.ywyyzx.excle.orm.Mchntcd;
 
 /**
@@ -15,9 +16,10 @@ public class app {
 		
 		        //String excel2003_2007 = Common.STUDENT_INFO_XLS_PATH;
 		        String excel2010 = "d:\\home\\test.xlsx";
-		        String a = newSheet(excel2010) ;
+		        //String a = newSheet(excel2010) ;
+		        readExcle read = new readExcle();
 		        
-		     List<Mchntcd> list = new readExcel readExcel(excel2010);
+		     List<Mchntcd> list = read.readExcel(excel2010);
 		   if(list!=null){
 		            for (int i=0;i<list.size();i++) {
 		            	if(list.get(i).getWhite()=="0"){

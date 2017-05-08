@@ -21,7 +21,7 @@ public class moveWhite {
 	 * @return
 	 */
 	public List<Mchntcd> moveWhite(List<Mchntcd> mchntcd){
-		List newmchnt = new ArrayList<Mchntcd>();
+		List<Mchntcd> newmchnt = new ArrayList<Mchntcd>();
 		if (mchntcd==null){
 			return null;
 			
