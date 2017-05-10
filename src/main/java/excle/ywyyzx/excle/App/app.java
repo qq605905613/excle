@@ -2,6 +2,7 @@ package excle.ywyyzx.excle.App;
 
 import java.util.List;
 
+import excle.ywyyzx.excle.ReadExcle.createExcle;
 import excle.ywyyzx.excle.ReadExcle.readExcle;
 import excle.ywyyzx.excle.orm.Mchntcd;
 
@@ -13,9 +14,9 @@ import excle.ywyyzx.excle.orm.Mchntcd;
 public class app {
 
 	public static void main(String[] args) {
-		
+		/*
 		        //String excel2003_2007 = Common.STUDENT_INFO_XLS_PATH;
-		        String excel2010 = "d:\\home\\test.xlsx";
+		        String excel2010 = "d:\\home1\\test.xlsx";
 		        //String a = newSheet(excel2010) ;
 		        readExcle read = new readExcle();
 		        
@@ -31,8 +32,9 @@ public class app {
 		         
 		            }
 		            
-		        }
-		      
+		        }*/
+		 createExcle excle =new createExcle();
+		 excle.createWhiteExcle();
 		     
 		    }
 	}
