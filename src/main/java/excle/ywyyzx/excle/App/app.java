@@ -1,5 +1,6 @@
 package excle.ywyyzx.excle.App;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import excle.ywyyzx.excle.ReadExcle.createExcle;
@@ -14,27 +15,29 @@ import excle.ywyyzx.excle.orm.Mchntcd;
 public class app {
 
 	public static void main(String[] args) {
-		/*
+	
 		        //String excel2003_2007 = Common.STUDENT_INFO_XLS_PATH;
 		        String excel2010 = "d:\\home1\\test.xlsx";
 		        //String a = newSheet(excel2010) ;
 		        readExcle read = new readExcle();
 		        
 		     List<Mchntcd> list = read.readExcel(excel2010);
+ 		     List<Mchntcd> list2 = new ArrayList<Mchntcd>();
+ 		    
 		   if(list!=null){
 		            for (int i=0;i<list.size();i++) {
-		            	if(list.get(i).getWhite()=="0"){
-		            		list.remove(i);
+		            	if(list.get(i).getWhite().equals("1")){
+		            		list2.add(list.get(i));
 		            		
 		            		
 		            	}
-		                
+		            	
 		         
 		            }
-		            
-		        }*/
-		 createExcle excle =new createExcle();
-		 excle.createWhiteExcle();
+		            createExcle excle =new createExcle();
+		   		 excle.createWhiteExcle(list2);
+		        }
+		
 		     
 		    }
 	}
