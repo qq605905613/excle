@@ -12,7 +12,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import excle.ywyyzx.excle.orm.Mchntcd;
-import excle.ywyyzx.excle.util.creatSheet;
+
 
 
 /**
@@ -28,6 +28,7 @@ public class readExcle {
 		    
 		    @SuppressWarnings("unused")
 			public List<Mchntcd> readExcel(String path){
+		    	System.out.println(">>>>>>>>>>>>>>>>>>>开始读取excle>>>>>>>>>>>>>>>>>>>>>>>");
 		        List<Mchntcd> list = new ArrayList<Mchntcd>();
 		        try {
 		            InputStream is =  new FileInputStream(path);
@@ -86,6 +87,7 @@ public class readExcle {
 		            e.printStackTrace();
 		        }
 		        return list;
+		      
 		    }
 		    
 		    @SuppressWarnings("static-access")

@@ -20,7 +20,7 @@ public class createExcle {
 	public void createWhiteExcle(List<Mchntcd> mchntcds) {
 		try {
 			
-				
+			System.out.println(">>>>>>>>>>>>开始生成白名单标识为1的商户>>>>>>>>>>>>>>>>>>");	
 			
 			// 创建新的Excel工作薄
 			SXSSFWorkbook workbook = new SXSSFWorkbook();
@@ -59,6 +59,28 @@ public class createExcle {
 				row=sheet.createRow(index+1);
 				  cell=row.createCell(0); 
 				  cell.setCellValue(mchntcds.get(index).getMchntcd());
+				  cell=row.createCell(1); 
+				  cell.setCellValue(mchntcds.get(index).getMchntnm());
+				  cell=row.createCell(2); 
+				  cell.setCellValue(mchntcds.get(index).getMcc());
+				  cell=row.createCell(3); 
+				  cell.setCellValue(mchntcds.get(index).getAddress());
+				  cell=row.createCell(4); 
+				  cell.setCellValue(mchntcds.get(index).getTp());
+				  cell=row.createCell(5); 
+				  cell.setCellValue(mchntcds.get(index).getCup());
+				  cell=row.createCell(6); 
+				  cell.setCellValue(mchntcds.get(index).getCupName());
+				  cell=row.createCell(7); 
+				  cell.setCellValue(mchntcds.get(index).getAcq());
+				  cell=row.createCell(8); 
+				  cell.setCellValue(mchntcds.get(index).getAcpt());
+				  cell=row.createCell(9); 
+				  cell.setCellValue(mchntcds.get(index).getAcptName());
+				  cell=row.createCell(10); 
+				  cell.setCellValue(mchntcds.get(index).getMclogo());
+				  cell=row.createCell(11); 
+				  cell.setCellValue(mchntcds.get(index).getWhite());
 			}
 
 			
