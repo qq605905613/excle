@@ -1,7 +1,10 @@
 package excle.ywyyzx.excle.ReadExcle;
 
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +14,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import excle.ywyyzx.excle.orm.Mcc;
 import excle.ywyyzx.excle.orm.Mchntcd;
 
 
@@ -101,7 +105,34 @@ public class readExcle {
 		        }
 		        
 		    }
+		    //读取禁用的MCC
+		    public List<String> getValue(String filePaths){
+		    	List<String> list_mcc =new ArrayList<String>();
+		    	   try {
+		                String encoding="GBK";
+		                File file=new File(filePaths);
+		                if(file.isFile() && file.exists()){ //判断文件是否存在
+		                    InputStreamReader read = new InputStreamReader(
+		                    new FileInputStream(file),encoding);//考虑到编码格式
+		                    BufferedReader bufferedReader = new BufferedReader(read);
+		                    String lineTxt = null;
+		                    while((lineTxt = bufferedReader.readLine()) != null){
+		                    	list_mcc.add(lineTxt);
+		                        System.out.println(lineTxt);
+		                    }
+		                    read.close();
+		        }else{
+		            System.out.println("找不到指定的文件");
+		        }
+		        } catch (Exception e) {
+		            System.out.println("读取mcc内容出错");
+		            e.printStackTrace();
+		        }
+		     
 		    
+				return list_mcc;
+		    	
+		    }
 
 
 }

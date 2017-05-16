@@ -20,21 +20,35 @@ public class moveWhite {
 	 * @param mchntcd
 	 * @return
 	 */
-	public List<Mchntcd> moveWhite(List<Mchntcd> mchntcd){
+	public List<Mchntcd> White(List<Mchntcd> mchntcd){
 		List<Mchntcd> newmchnt = new ArrayList<Mchntcd>();
+		//白名单标识为1的队列
+		List<Mchntcd> list2 = new ArrayList<Mchntcd>();
 		if (mchntcd==null){
 			return null;
 			
 		}
-		for(int i=1; i<mchntcd.size();i++){
-			if(mchntcd.get(i).getWhite().equals("1")){
-				mchntcd.remove(i);
-			}
-			
-			
-		}
-		return mchntcd;
+		   if(newmchnt!=null){
+	            for (int i=0;i<newmchnt.size();i++) {
+	            	//生成新的白名单标识为1的excle
+	            	if(newmchnt.get(i).getWhite().equals("1")){
+	            		list2.add(newmchnt.get(i));
+	            		newmchnt.remove(i);
+	            		
+	            		
+	            	}
+	            	createExcle createExcle =new createExcle();
+            		createExcle.createWhiteExcle(list2); 
+	         
+	            }
+	         
+	        }
+	
+		return newmchnt;
 		
 	}
-
+	public List<Mchntcd> Mcc(List<String> list_mcc){
+		return null;
+		
+	}
 }
