@@ -106,7 +106,9 @@ public class readExcle {
 		        
 		    }
 		    //读取禁用的MCC
-		    public List<String> getValue(String filePaths){
+		    public List<String> getValue(){
+		    	  String filePaths = "d:\\home1\\profile\\mcc.txt";
+
 		    	List<String> list_mcc =new ArrayList<String>();
 		    	   try {
 		                String encoding="GBK";
@@ -122,7 +124,7 @@ public class readExcle {
 		                    }
 		                    read.close();
 		        }else{
-		            System.out.println("找不到指定的文件");
+		            System.out.println("找不到指定文件");
 		        }
 		        } catch (Exception e) {
 		            System.out.println("读取mcc内容出错");

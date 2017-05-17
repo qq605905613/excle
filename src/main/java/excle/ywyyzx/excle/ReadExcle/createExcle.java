@@ -17,7 +17,7 @@ import excle.ywyyzx.excle.orm.Mchntcd;
 
 public class createExcle {
 
-	public void createWhiteExcle(List<Mchntcd> mchntcds) {
+	public void createWhiteExcle(List<Mchntcd> mchntcds,String sheetname ,String filename) {
 		try {
 			
 			System.out.println(">>>>>>>>>>>>开始生成白名单标识为1的商户>>>>>>>>>>>>>>>>>>");	
@@ -25,7 +25,7 @@ public class createExcle {
 			// 创建新的Excel工作薄
 			SXSSFWorkbook workbook = new SXSSFWorkbook();
 			// 如果新建一个名为“白名单标识”的工作表
-			Sheet sheet = workbook.createSheet("白名单标识为1");
+			Sheet sheet = workbook.createSheet(sheetname);
 			// Sheet sheet=workbook.createSheet();
 			// 在索引0的位置创建行（最顶端的行）
 			Row row = sheet.createRow(0);
@@ -62,6 +62,7 @@ public class createExcle {
 				  cell=row.createCell(1); 
 				  cell.setCellValue(mchntcds.get(index).getMchntnm());
 				  cell=row.createCell(2); 
+				  cell.setCellType(HSSFCell.CELL_TYPE_STRING);
 				  cell.setCellValue(mchntcds.get(index).getMcc());
 				  cell=row.createCell(3); 
 				  cell.setCellValue(mchntcds.get(index).getAddress());
@@ -85,7 +86,7 @@ public class createExcle {
 
 			
 			// 新建文件输出流
-			FileOutputStream fOut = new FileOutputStream("d:\\home1\\test1.xlsx");
+			FileOutputStream fOut = new FileOutputStream(filename);
 			// 将数据写入Excel
 			workbook.write(fOut);
 			fOut.flush();

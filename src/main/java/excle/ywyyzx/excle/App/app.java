@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import excle.ywyyzx.excle.ReadExcle.createExcle;
+import excle.ywyyzx.excle.ReadExcle.moveWhite;
 import excle.ywyyzx.excle.ReadExcle.readExcle;
 import excle.ywyyzx.excle.orm.Mchntcd;
 
@@ -16,14 +17,12 @@ public class app {
 	public static void main(String[] args) {
 	
 		        //String excel2003_2007 = Common.STUDENT_INFO_XLS_PATH;
-		        //String excel2010 = "d:\\home1\\test.xlsx";
+		        String exce2010 = "d:\\home1\\test.xlsx";
 		        //String a = newSheet(excel2010) ;
 		        //readExcle read = new readExcle();
-		        
-		    String filepath = "d:\\home1\\profile\\mcc.txt";
-		   readExcle excle = new readExcle();
-		   excle.getValue(filepath);
-		
-		     
+		   readExcle  read =new readExcle();
+		   moveWhite white =new moveWhite();
+		   white.White(read.readExcel(exce2010))
+		  ;
 		    }
 }
