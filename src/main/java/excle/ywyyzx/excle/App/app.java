@@ -22,7 +22,7 @@ public class app {
 		        //readExcle read = new readExcle();
 		   readExcle  read =new readExcle();
 		   moveWhite white =new moveWhite();
-		   white.White(read.readExcel(exce2010))
+		   white.likeName(read.readExcel(exce2010))
 		  ;
 		    }
 }

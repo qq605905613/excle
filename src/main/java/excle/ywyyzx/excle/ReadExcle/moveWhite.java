@@ -14,14 +14,14 @@ public class moveWhite {
 	/*
 	 * 非标商户的检查
 	 * 
-	 * @param mchntcd  读取的list
+	 * @param mchntcd 读取的list
 	 * 
 	 * @return
 	 */
 	public List<Mchntcd> White(List<Mchntcd> mchntcd) {
 		System.out.println("开始执行白名单模块");
-		//返回新的队列
-		//List<Mchntcd> newmchnt = new ArrayList<Mchntcd>();
+		// 返回新的队列
+		// List<Mchntcd> newmchnt = new ArrayList<Mchntcd>();
 		// 白名单标识为1的队列
 		List<Mchntcd> list2 = new ArrayList<Mchntcd>();
 		if (mchntcd == null) {
@@ -36,10 +36,10 @@ public class moveWhite {
 					mchntcd.remove(i);
 
 				}
-				
+
 			}
 			createExcle createExcle = new createExcle();
-			createExcle.createWhiteExcle(list2,"白名单标识为1","d:\\home1\\白名单标识为1.xlsx");
+			createExcle.createWhiteExcle(list2, "白名单标识为1", "d:\\home1\\白名单标识为1.xlsx");
 
 		}
 
@@ -49,8 +49,10 @@ public class moveWhite {
 
 	// 判断Mcc是否在MCC.txt集合文件中
 	/**
-	 * @param list_mcc 读取到的禁用MCC
-	 * @param newmchnt 执行白名单标识为1后返回的新的集合
+	 * @param list_mcc
+	 *            读取到的禁用MCC
+	 * @param newmchnt
+	 *            执行白名单标识为1后返回的新的集合
 	 * @return
 	 */
 	public List<Mchntcd> Mcc(List<String> list_mcc, List<Mchntcd> newmchnt) {
@@ -62,6 +64,23 @@ public class moveWhite {
 
 		}
 
+		return null;
+
+	}
+
+	/**判断商户名称是否含有特定的
+	 * @param mchntcd
+	 * @return
+	 */
+	public List<Mchntcd> likeName(List<Mchntcd> mchntcd) {
+		String stringArray0[] = { "小微", "小商", "微商" };
+		for (int i = 0; i < mchntcd.size(); i++) {
+			for (int j = 0; j < stringArray0.length; j++) {
+				if (mchntcd.get(i).getMchntnm().indexOf(stringArray0[j]) > -1) {
+					System.out.println(mchntcd.get(i).getMchntcd());
+				}
+			}
+		}
 		return null;
 
 	}
