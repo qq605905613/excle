@@ -73,7 +73,7 @@ public class moveWhite {
 	 * @return
 	 */
 	public List<Mchntcd> likeName(List<Mchntcd> mchntcd) {
-		String stringArray0[] = { "小微", "小商", "微商" };
+		String stringArray0[] = { "小微", "小商" };
 		for (int i = 0; i < mchntcd.size(); i++) {
 			for (int j = 0; j < stringArray0.length; j++) {
 				if (mchntcd.get(i).getMchntnm().indexOf(stringArray0[j]) > -1) {
