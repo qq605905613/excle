@@ -1,5 +1,6 @@
 package excle.ywyyzx.excle.App;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +23,15 @@ public class app {
 		        //readExcle read = new readExcle();
 		   readExcle  read =new readExcle();
 		   moveWhite white =new moveWhite();
-		   white.likeName(read.readExcel(exce2010))
-		  ;
+List<Mchntcd>	mcc =	 white.White(read.readExcel(exce2010))  ;
+  createExcle  txt =new createExcle();
+  try {
+	txt.createDone(mcc);
+} catch (IOException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
+  // white.Mcc(read.getValue(), mcc);
+		  
 		    }
 }

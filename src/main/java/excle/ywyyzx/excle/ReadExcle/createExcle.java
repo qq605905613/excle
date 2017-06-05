@@ -1,6 +1,9 @@
 package excle.ywyyzx.excle.ReadExcle;
 
+import java.io.BufferedWriter;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
@@ -17,11 +20,11 @@ import excle.ywyyzx.excle.orm.Mchntcd;
 
 public class createExcle {
 
-	public void createWhiteExcle(List<Mchntcd> mchntcds,String sheetname ,String filename) {
+	public void createWhiteExcle(List<Mchntcd> mchntcds, String sheetname, String filename) {
 		try {
-			
-			System.out.println(">>>>>>>>>>>>开始生成白名单标识为1的商户>>>>>>>>>>>>>>>>>>");	
-			
+
+			System.out.println(">>>>>>>>>>>>开始生成白名单标识为1的商户>>>>>>>>>>>>>>>>>>");
+
 			// 创建新的Excel工作薄
 			SXSSFWorkbook workbook = new SXSSFWorkbook();
 			// 如果新建一个名为“白名单标识”的工作表
@@ -44,47 +47,50 @@ public class createExcle {
 			cell = row.createCell(4);
 			cell.setCellValue("联接方式");
 			cell = row.createCell(5);
+
 			cell.setCellValue("所属分公司");
 			cell = row.createCell(6);
-			cell.setCellValue("收单机构代码");
+
+			cell.setCellValue("所属分公司");
 			cell = row.createCell(7);
-			cell.setCellValue("受理机构代码");
+			cell.setCellValue("收单机构代码");
 			cell = row.createCell(8);
-			cell.setCellValue("受理机构名称");
+			cell.setCellValue("受理机构代码");
 			cell = row.createCell(9);
-			cell.setCellValue("商户品牌");
+			cell.setCellValue("受理机构名称");
 			cell = row.createCell(10);
+			cell.setCellValue("商户品牌");
+			cell = row.createCell(11);
 			cell.setCellValue("是否为非标商户");
-			for (int index=0;index<mchntcds.size();index++){
-				row=sheet.createRow(index+1);
-				  cell=row.createCell(0); 
-				  cell.setCellValue(mchntcds.get(index).getMchntcd());
-				  cell=row.createCell(1); 
-				  cell.setCellValue(mchntcds.get(index).getMchntnm());
-				  cell=row.createCell(2); 
-				  cell.setCellType(HSSFCell.CELL_TYPE_STRING);
-				  cell.setCellValue(mchntcds.get(index).getMcc());
-				  cell=row.createCell(3); 
-				  cell.setCellValue(mchntcds.get(index).getAddress());
-				  cell=row.createCell(4); 
-				  cell.setCellValue(mchntcds.get(index).getTp());
-				  cell=row.createCell(5); 
-				  cell.setCellValue(mchntcds.get(index).getCup());
-				  cell=row.createCell(6); 
-				  cell.setCellValue(mchntcds.get(index).getCupName());
-				  cell=row.createCell(7); 
-				  cell.setCellValue(mchntcds.get(index).getAcq());
-				  cell=row.createCell(8); 
-				  cell.setCellValue(mchntcds.get(index).getAcpt());
-				  cell=row.createCell(9); 
-				  cell.setCellValue(mchntcds.get(index).getAcptName());
-				  cell=row.createCell(10); 
-				  cell.setCellValue(mchntcds.get(index).getMclogo());
-				  cell=row.createCell(11); 
-				  cell.setCellValue(mchntcds.get(index).getWhite());
+			for (int index = 0; index < mchntcds.size(); index++) {
+				row = sheet.createRow(index + 1);
+				cell = row.createCell(0);
+				cell.setCellValue(mchntcds.get(index).getMchntcd());
+				cell = row.createCell(1);
+				cell.setCellValue(mchntcds.get(index).getMchntnm());
+				cell = row.createCell(2);
+				cell.setCellType(HSSFCell.CELL_TYPE_STRING);
+				cell.setCellValue(mchntcds.get(index).getMcc());
+				cell = row.createCell(3);
+				cell.setCellValue(mchntcds.get(index).getAddress());
+				cell = row.createCell(4);
+				cell.setCellValue(mchntcds.get(index).getTp());
+				cell = row.createCell(5);
+				cell.setCellValue(mchntcds.get(index).getCup());
+				cell = row.createCell(6);
+				cell.setCellValue(mchntcds.get(index).getCupName());
+				cell = row.createCell(7);
+				cell.setCellValue(mchntcds.get(index).getAcq());
+				cell = row.createCell(8);
+				cell.setCellValue(mchntcds.get(index).getAcpt());
+				cell = row.createCell(9);
+				cell.setCellValue(mchntcds.get(index).getAcptName());
+				cell = row.createCell(10);
+				cell.setCellValue(mchntcds.get(index).getMclogo());
+				cell = row.createCell(11);
+				cell.setCellValue(mchntcds.get(index).getWhite());
 			}
 
-			
 			// 新建文件输出流
 			FileOutputStream fOut = new FileOutputStream(filename);
 			// 将数据写入Excel
@@ -95,5 +101,27 @@ public class createExcle {
 			e.printStackTrace();
 		}
 	}
-
+public void createDone(List<Mchntcd> mchntcd) throws IOException{
+	boolean flag = false;
+	FileWriter fw = null;
+	BufferedWriter bw = null;
+	
+		
+			fw = new FileWriter("d:\\home1\\可审核列表.txt", true);
+			bw = new BufferedWriter(fw, 100);
+			for (int i = 0; i < mchntcd.size(); i++) {
+				bw.write(mchntcd.get(i).getMchntcd());
+			
+	
+		
+			
+			
+		
+		
+			
+	
+	
+}
+			bw.close();
+}
 }

@@ -57,14 +57,17 @@ public class moveWhite {
 	 */
 	public List<Mchntcd> Mcc(List<String> list_mcc, List<Mchntcd> newmchnt) {
 		System.out.println("开始执行禁用mcc模块");
+		//List<Mchntcd> newmcc = new ArrayList<Mchntcd>();
 		for (int i = 0; i < newmchnt.size(); i++) {
 			if (list_mcc.contains(newmchnt.get(i))) {
+				
 				newmchnt.remove(newmchnt.get(i));
 			}
 
 		}
-
-		return null;
+		createExcle createExcle = new createExcle();
+		createExcle.createWhiteExcle(newmchnt, "MCC", "d:\\home1\\可审MCC.xlsx");
+		return newmchnt ;
 
 	}
 
