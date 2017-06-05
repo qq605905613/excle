@@ -110,7 +110,7 @@ public void createDone(List<Mchntcd> mchntcd) throws IOException{
 			fw = new FileWriter("d:\\home1\\可审核列表.txt", true);
 			bw = new BufferedWriter(fw, 100);
 			for (int i = 0; i < mchntcd.size(); i++) {
-				bw.write(mchntcd.get(i).getMchntcd());
+				bw.write(mchntcd.get(i).getMchntcd()+"\r\n");
 			
 	
 		
