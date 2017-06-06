@@ -56,10 +56,10 @@ public class moveWhite {
 	 * @return
 	 */
 	public List<Mchntcd> Mcc(List<String> list_mcc, List<Mchntcd> newmchnt) {
-		System.out.println("开始执行禁用mcc模块");
+		System.out.println("开始执行禁用mcc");
 		//List<Mchntcd> newmcc = new ArrayList<Mchntcd>();
 		for (int i = 0; i < newmchnt.size(); i++) {
-			if (list_mcc.contains(newmchnt.get(i))) {
+			if (list_mcc.contains(newmchnt.get(i).getMcc())) {
 				
 				newmchnt.remove(newmchnt.get(i));
 			}
@@ -76,14 +76,14 @@ public class moveWhite {
 	 * @return
 	 */
 	public List<Mchntcd> likeName(List<Mchntcd> mchntcd) {
-		String stringArray0[] = { "小微", "小商" };
+		String forbid = "小微";
 		for (int i = 0; i < mchntcd.size(); i++) {
-			for (int j = 0; j < stringArray0.length; j++) {
-				if (mchntcd.get(i).getMchntnm().indexOf(stringArray0[j]) > -1) {
+		
+				if (mchntcd.get(i).getMchntnm().indexOf(forbid) > -1) {
 					System.out.println(mchntcd.get(i).getMchntcd());
 				}
 			}
-		}
+		
 		return null;
 
 	}

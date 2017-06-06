@@ -23,10 +23,14 @@ public class app {
 		        //readExcle read = new readExcle();
 		   readExcle  read =new readExcle();
 		   moveWhite white =new moveWhite();
-List<Mchntcd>	mcc =	 white.White(read.readExcel(exce2010))  ;
-  createExcle  txt =new createExcle();
+List<Mchntcd>	mcc =	 white.White(read.readExcel(exce2010)) ;
+List<Mchntcd> forbid = white.Mcc(read.getValue(), mcc);  
+createExcle  txt =new createExcle();
   try {
-	txt.createDone(mcc);
+List<Mchntcd> white_done =	read.readExcel("d:\\home1\\白名单标识为1.xlsx");
+	txt.createDone(white_done);
+List<Mchntcd> mcc_done =read.readExcel("d:\\home1\\可审MCC.xlsx");
+	txt.createDone(mcc_done);
 } catch (IOException e) {
 	// TODO Auto-generated catch block
 	e.printStackTrace();

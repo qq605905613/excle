@@ -23,7 +23,7 @@ public class createExcle {
 	public void createWhiteExcle(List<Mchntcd> mchntcds, String sheetname, String filename) {
 		try {
 
-			System.out.println(">>>>>>>>>>>>开始生成白名单标识为1的商户>>>>>>>>>>>>>>>>>>");
+			System.out.println(">>>>>>>>>>>>开始生成excles>>>>>>>>>>>>>>>>>>");
 
 			// 创建新的Excel工作薄
 			SXSSFWorkbook workbook = new SXSSFWorkbook();
@@ -101,27 +101,23 @@ public class createExcle {
 			e.printStackTrace();
 		}
 	}
-public void createDone(List<Mchntcd> mchntcd) throws IOException{
-	boolean flag = false;
-	FileWriter fw = null;
-	BufferedWriter bw = null;
-	
-		
-			fw = new FileWriter("d:\\home1\\可审核列表.txt", true);
-			bw = new BufferedWriter(fw, 100);
-			for (int i = 0; i < mchntcd.size(); i++) {
-				bw.write(mchntcd.get(i).getMchntcd()+"\r\n");
-			
-	
-		
-			
-			
-		
-		
-			
-	
-	
-}
-			bw.close();
-}
+
+	/** 
+	 * @param mchntcd
+	 * @throws IOException
+	 */
+	public void createDone(List<Mchntcd> mchntcd) throws IOException {
+		System.out.println("开始生成可通过商户列表");
+		boolean flag = false;
+		FileWriter fw = null;
+		BufferedWriter bw = null;
+
+		fw = new FileWriter("d:\\home1\\可审核列表.txt", true);
+		bw = new BufferedWriter(fw, 100);
+		for (int i = 0; i < mchntcd.size(); i++) {
+			bw.write(mchntcd.get(i).getMchntcd() + "\r\n");
+
+		}
+		bw.close();
+	}
 }
